@@ -1,6 +1,5 @@
 package utilities;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -23,20 +22,20 @@ public class Driver {
             switch (ConfigReader.getProperty("browser")) {
 
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                    //WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     break;
                 case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
+                   // WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
 
                 case "edge":
-                    WebDriverManager.edgedriver().setup();
+                 //   WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
                 default:
-                    WebDriverManager.chromedriver().setup();
+                 //   WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
             }
 

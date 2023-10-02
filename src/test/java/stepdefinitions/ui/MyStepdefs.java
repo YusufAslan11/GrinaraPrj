@@ -26,6 +26,7 @@ public class MyStepdefs {
         Driver.getDriver().get(ConfigReader.getProperty(Grinara_Url));
         bekle(5);
     }
+
     @Then("Kullanici account butonuna basar")
     public void kullanici_account_butonuna_basar() {
          //click(page.register_myAccount2);
@@ -78,4 +79,22 @@ public class MyStepdefs {
     public void kullaniciLoginButonunaTiklar() {
         login.login_button.click();
     }
+
+    @And("Kullanici login olunabildigini dogrular")
+    public void kullaniciLoginOlunabildiginiDogrular() {
+        Assert.assertTrue();
+    }
+
+    @And("Kullanici login negatif test icin gecersiz senaryo olusturur  {string},{string}")
+    public void kullaniciLoginNegatifTestIcinGecersizSenaryoOlusturur(String Email, String password) {
+        login.login_username.sendKeys(Email);
+        login.login_password.sendKeys(password);
+        bekle(1);
+        login.login_button.click();
+        bekle(2);
+
+
+    }
+
+
 }
