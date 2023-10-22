@@ -5,20 +5,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import pages.Login_Page;
 import pages.Register_Page;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-import static utilities.ReusableMethods.bekle;
-import static utilities.ReusableMethods.click;
+import static utilities.ReusableMethods.*;
 
 public class MyStepdefs {
 
     Register_Page page=new Register_Page();
     Login_Page login=new Login_Page();
     Faker fake=new Faker();
-
 
 
     @Given("Kullanici {string} sayfasina gider")
@@ -29,10 +28,9 @@ public class MyStepdefs {
 
     @Then("Kullanici account butonuna basar")
     public void kullanici_account_butonuna_basar() {
-         //click(page.register_myAccount2);
+
        page.register_myAccount.click();
         bekle(2);
-
 
 
     }
@@ -54,14 +52,16 @@ public class MyStepdefs {
         bekle(2);
 
     }
-    @Then("Kullanici kayit oldugunu gorur")
-    public void kullanici_kayit_oldugunu_gorur() {
-
-        String text=page.register_text.toString();
-        System.out.println(text);
-        Assert.assertTrue(text.contains("Hallo"));
+    @Then("Kullanici register isleminin basarili oldugunu dogrular2")
+    public void kullanici_register_isleminin_basarili_oldugunu_dogrular() {
+         page.edit_account.click();
 
     }
+    @Then("Kullanici sayfayi kapatir")
+    public void kullanici_sayfayi_kapatir() {
+
+    }
+
 
     @And("Kullanici login icin mail adresini girer")
     public void kullaniciLoginIcinMailAdresiniGirer() {
@@ -74,7 +74,6 @@ public class MyStepdefs {
 
     }
 
-
     @And("Kullanici login butonuna tiklar")
     public void kullaniciLoginButonunaTiklar() {
         login.login_button.click();
@@ -82,7 +81,13 @@ public class MyStepdefs {
 
     @And("Kullanici login olunabildigini dogrular")
     public void kullaniciLoginOlunabildiginiDogrular() {
-        Assert.assertTrue();
+        page.register_myAccount.click();
+        Assert.assertTrue(Driver.getDriver().getTitle().contains("My account"));
+//        WebElement loginNameExpected=login.login_Hallo;
+//        String newLoginName=loginNameExpected.getText();
+//        tumSayfaResmi(newLoginName);
+//        Assert.assertTrue(newLoginName.contains("Hallo"));
+
     }
 
     @And("Kullanici login negatif test icin gecersiz senaryo olusturur  {string},{string}")
@@ -94,7 +99,11 @@ public class MyStepdefs {
         bekle(2);
 
 
+
     }
 
-
+    @And("Kullanici negatif senaryolarda login olunamadigini dogrular")
+    public void kullaniciNegatifSenaryolardaLoginOlunamadiginiDogrular() {
+        Assert.assertFalse(Driver.getDriver().getTitle().contains("My account"));
+    }
 }

@@ -19,6 +19,9 @@ public class Login_Page {
     @FindBy(xpath = "//button[@name='login']")
     public WebElement login_button;
 
+    @FindBy(xpath = "//*[@id=\"post-35\"]/div/div/div/div[2]/p[1]/text()[1]")
+    public WebElement login_Hallo;
+
 
 
 }

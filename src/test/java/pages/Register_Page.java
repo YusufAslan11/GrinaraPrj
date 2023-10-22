@@ -9,17 +9,8 @@ public class Register_Page {
     public Register_Page(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
-//  @FindBy(linkText = "https://grinara.de/my-account/")
-//    public WebElement register_myAccount;
-//
-//    @FindBy(xpath = "//span[@class='wd-tools-text']")
-//    public WebElement register_myAccount1;
-//
-//    @FindBy(xpath = "//span[@class='wd-tools-icon")
-//    public WebElement register_myAccount2;
-    @FindBy(xpath = "/html/body/div[2]/header/div/div[2]/div/div/div[3]/div[1]/a/span[1]")
-    public WebElement register_myAccount;
+@FindBy(xpath = "/html/body/div[2]/header/div/div[2]/div/div/div[3]/div[1]/a/span[1]")
+public WebElement register_myAccount;
 
 @FindBy(xpath = "//a[@class='btn btn-style-link btn-color-primary create-account-button']")
     public WebElement register_register;
@@ -29,6 +20,10 @@ public class Register_Page {
     public WebElement register_verify;
 @FindBy(xpath = "//div[@class='woocommerce-notices-wrapper']")
     public WebElement register_text;
+
+@FindBy(className = "edit-account-link")
+    public WebElement edit_account;
+
 
 }
 
