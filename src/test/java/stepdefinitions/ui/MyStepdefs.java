@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import pages.Login_Page;
+import pages.ProductSearchPage;
 import pages.Product_Page;
 import pages.Register_Page;
 import utilities.ConfigReader;
@@ -23,6 +24,7 @@ public class MyStepdefs {
     Register_Page page=new Register_Page();
     Login_Page login=new Login_Page();
     Product_Page prod=new Product_Page();
+    ProductSearchPage searchPage=new ProductSearchPage();
     Faker fake=new Faker();
     Actions actions=new Actions(Driver.getDriver());
 
@@ -156,4 +158,23 @@ public class MyStepdefs {
 
     }
 
+    @Then("Kullanici arama bolumunde {string} aratir")
+    public void kullaniciAramaBolumundeAratir(String Product) {
+        searchPage.searchBox.sendKeys(Product);
+        searchPage.searchButton.click();
+
+        
+    }
+
+    @Then("Kullanici aranan urunlerin bulundugunu dogrular")
+    public void kullaniciArananUrunlerinBulundugunuDogrular() {
+       List<WebElement>product=Driver.getDriver().findElements(By.className("className = \"products elements-grid wd-products-holder  wd-spacing-20 grid-columns-4 pagination-pagination title-line-two wd-stretch-cont-lg align-items-start wd-products-with-bg row\")"));
+        for (WebElement prod : product) {
+            System.out.println(prod.getText());
+
+        }
+       boolean prod = product.size()>0;
+       Assert.assertTrue(prod);
+
+    }
 }
