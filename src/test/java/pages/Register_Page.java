@@ -9,7 +9,8 @@ public class Register_Page {
     public Register_Page(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-@FindBy(xpath = "/html/body/div[2]/header/div/div[2]/div/div/div[3]/div[1]/a/span[1]")
+// @FindBy(xpath = "/html/body/div[2]/header/div/div[2]/div/div/div[3]/div[1]/a/span[1]")
+@FindBy(xpath = "//a[@title='Mein Konto']")
 public WebElement register_myAccount;
 
 @FindBy(xpath = "//a[@class='btn btn-style-link btn-color-primary create-account-button']")

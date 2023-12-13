@@ -4,22 +4,17 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.apache.xmlbeans.SchemaTypeLoader;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import pages.Login_Page;
 import pages.Product_Page;
 import pages.Register_Page;
 import utilities.ConfigReader;
 import utilities.Driver;
-
-import javax.swing.*;
 import java.util.List;
-
 import static utilities.ReusableMethods.*;
 
 
@@ -29,18 +24,22 @@ public class MyStepdefs {
     Login_Page login=new Login_Page();
     Product_Page prod=new Product_Page();
     Faker fake=new Faker();
+    Actions actions=new Actions(Driver.getDriver());
 
 
     @Given("Kullanici {string} sayfasina gider")
     public void kullanici_sayfasina_gider(String Grinara_Url) {
         Driver.getDriver().get(ConfigReader.getProperty(Grinara_Url));
-        bekle(5);
+        bekle(7);
+        actions.sendKeys(Keys.ESCAPE).perform();
     }
 
     @Then("Kullanici account butonuna basar")
     public void kullanici_account_butonuna_basar() {
 
-       page.register_myAccount.click();
+
+        click(page.register_myAccount);
+
         bekle(2);
 
 
@@ -92,7 +91,7 @@ public class MyStepdefs {
 
     @And("Kullanici login olunabildigini dogrular")
     public void kullaniciLoginOlunabildiginiDogrular() {
-        page.register_myAccount.click();
+        click(page.register_myAccount);
         Assert.assertTrue(Driver.getDriver().getTitle().contains("My account"));
 
 

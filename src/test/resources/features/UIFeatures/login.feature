@@ -25,8 +25,8 @@ Feature: Grinara webPage login testi
       | abc@bbb                     | 12345678 |
       | abcgmail.com                | 12345678 |
       | prish.kaelen@free2ducks.com | jxuhy2C& |
-      | prish.kaelen@free2ducks.com | 12345    |
-      | harold.arben@free2ducks.com |          |
+      | harold.arben@free2ducks.com | 12345?!. |
+      | harold.arben@free2ducks.com | 12345    |
       |                             |          |
 
 
