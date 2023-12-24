@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
@@ -34,6 +35,8 @@ public class Driver {
                  //   WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
+
+
                 default:
                  //   WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();

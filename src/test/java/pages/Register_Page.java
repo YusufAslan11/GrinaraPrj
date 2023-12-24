@@ -25,6 +25,9 @@ public WebElement register_myAccount;
 @FindBy(className = "edit-account-link")
     public WebElement edit_account;
 
+@FindBy(xpath = "//*[text()=\"Failed attempts count:\"]")
+    public WebElement failed;
+
 
 }
 

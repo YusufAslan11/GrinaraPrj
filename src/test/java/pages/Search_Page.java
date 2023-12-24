@@ -5,8 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class ProductSearchPage {
-    public ProductSearchPage() {
+public class Search_Page {
+    public Search_Page() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 

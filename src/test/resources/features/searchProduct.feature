@@ -10,12 +10,12 @@ Feature: Grinara webPage product search section
 
   @searchproduct
   Scenario Outline: Grinara webpage product search section
-    Then Kullanici arama bolumunde "<Product>" aratir
+    Then Kullanici arama bolumunde "<Product1>" aratir
     Then Kullanici aranan urunlerin bulundugunu dogrular
 
     Examples:
 
-      | Product   |
+      | Product1  |
       | Biofactur |
       | Komfortec |
 

@@ -11,10 +11,12 @@ import org.junit.runner.RunWith;
                 "html:target/default-cucumber-reports07.html",
                 "json:target/json-reports/cucumber.json",
                 "junit:target/xml-report/cucumber.xml",
+//                "utilities.formatter.prettyReports:target/cucumber-pretty-reports",
+//                "rerun:target/rerun.txt"
         },
         monochrome = true, //raporları consolda daha okunaklı olması için
-        features = "src/test/resources",
-        glue = {"stepdefinitions"},
+        features = "src/test/resources/features",
+        glue = "stepdefinitions",
         tags = "@product",
         dryRun = false
 
