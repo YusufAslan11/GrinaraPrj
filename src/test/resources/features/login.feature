@@ -11,6 +11,7 @@ Feature: Grinara webPage login testi
     And Kullanici password girer
     And Kullanici login butonuna tiklar
     And Kullanici login olunabildigini dogrular
+    And Kullanici sayfayi kapatir
 
   @loginNegative
   Scenario Outline: Grinara webpage negative login testi

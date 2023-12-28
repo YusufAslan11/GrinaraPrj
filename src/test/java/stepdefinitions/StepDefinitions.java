@@ -77,6 +77,8 @@ public class StepDefinitions {
     @Then("Kullanici sayfayi kapatir")
     public void kullanici_sayfayi_kapatir() {
 
+        Driver.closeDriver();
+
     }
 
 

@@ -13,6 +13,7 @@ Feature: Grinara webPage product search section
   Scenario Outline: Grinara webpage product search section
     Then Kullanici arama bolumunde "<Pro>" aratir
     Then Kullanici aranan urunlerin bulundugunu dogrular
+    And Kullanici sayfayi kapatir
 
     Examples:
       | Pro       |

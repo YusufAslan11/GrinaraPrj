@@ -14,6 +14,7 @@ Feature: Grinara webpage product Test
     Then Kullanici begendigi bir urunu secer
     And Kullanici urun seceneklerininden secim yapar
     And Kullanici urunu sepete ekler
+    And Kullanici sayfayi kapatir
 
 
 
