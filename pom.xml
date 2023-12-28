@@ -61,21 +61,6 @@
             <type>pom</type>
         </dependency>
 
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver &ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
-        <!--            <artifactId>selenium-chrome-driver</artifactId>-->
-        <!--            <version>4.16.1</version>-->
-        <!--        </dependency>-->
-
-
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-        <!--        <dependency>-->
-        <!--            <groupId>io.github.bonigarcia</groupId>-->
-        <!--            <artifactId>webdrivermanager</artifactId>-->
-        <!--            <version>5.5.3</version>-->
-        <!--        </dependency>-->
-
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>

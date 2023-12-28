@@ -1,5 +1,3 @@
-
-
 @register2
 Feature: Grinara webpage register testi
 
@@ -7,7 +5,7 @@ Feature: Grinara webpage register testi
     Given Kullanici "Grinara_Url" sayfasina gider
     Then  Kullanici account butonuna basar
 
-  @register1
+  @register
   Scenario: Grinara webpage icin kayit yapilabilmeli
     And Kullanici register sekmesine tiklar
     And Kullanici mail adresini girer

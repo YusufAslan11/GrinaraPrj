@@ -17,8 +17,8 @@ import org.junit.runner.RunWith;
         monochrome = true, //raporları consolda daha okunaklı olması için
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "@product",
-        dryRun = false
+        tags = "@categories",
+        dryRun = true
 
 )
 

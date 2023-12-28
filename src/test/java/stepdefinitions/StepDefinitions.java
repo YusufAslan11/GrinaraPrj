@@ -10,13 +10,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import pages.Login_Page;
-import pages.Search_Page;
 import pages.Product_Page;
 import pages.Register_Page;
+import pages.SearchProduct_Page;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.util.List;
+
 
 import static utilities.ReusableMethods.*;
 
@@ -26,7 +27,7 @@ public class StepDefinitions {
     Register_Page page = new Register_Page();
     Login_Page login = new Login_Page();
     Product_Page prod = new Product_Page();
-  //  Search_Page searchPage=new Search_Page();
+    SearchProduct_Page search = new SearchProduct_Page();
 
     Faker fake = new Faker();
     Actions actions = new Actions(Driver.getDriver());
@@ -161,27 +162,94 @@ public class StepDefinitions {
     @Then("Kullanici sepete urunun eklendigini dogrular")
     public void kullanici_sepete_urunun_eklendigini_dogrular() {
         prod.sepetGir.click();
-        Assert.assertTrue(prod.sepetteUrun.isDisplayed());
+        //Assert.assertTrue(prod.sepetteUrun.isDisplayed());
+        boolean var = prod.productList.isEmpty();
+        Assert.assertFalse(var);
+        tumSayfaResmi("AddedProduct");
+
 
     }
-//
-//    @Then("Kullanici arama bolumunde {string} aratir")
-//    public void kullaniciAramaBolumundeAratir(String Product1) {
-//        searchPage.searchBox.sendKeys(Product1);
-//        searchPage.searchButton.click();
-//
-//
-//    }
-//
-//    @Then("Kullanici aranan urunlerin bulundugunu dogrular")
-//    public void kullaniciArananUrunlerinBulundugunuDogrular() {
-//        List<WebElement> product = Driver.getDriver().findElements(By.className("className = \"products elements-grid wd-products-holder  wd-spacing-20 grid-columns-4 pagination-pagination title-line-two wd-stretch-cont-lg align-items-start wd-products-with-bg row\")"));
-//        for (WebElement prod : product) {
-//            System.out.println(prod.getText());
-//
-//        }
-//        boolean prod = product.size() > 0;
-//        Assert.assertTrue(prod);
-//
-//    }
+
+    @Then("Kullanici arama bolumunde {string} aratir")
+    public void kullaniciAramaBolumundeAratir(String Pro) {
+        search.searchBox.sendKeys(Pro);
+        search.searchButton.click();
+        bekle(3);
+        Actions actions1 = new Actions(Driver.getDriver());
+        actions1.sendKeys(Keys.PAGE_DOWN).perform();
+
+
+    }
+
+    @Then("Kullanici aranan urunlerin bulundugunu dogrular")
+    public void kullaniciArananUrunlerinBulundugunuDogrular() {
+        boolean isDisplayed = prod.findResult.isDisplayed();
+        Assert.assertTrue(isDisplayed);
+        webElementResmi(prod.findResult);
+        tumSayfaResmi("ProductPicture");
+
+        Driver.closeDriver();
+
+    }
+
+    @Then("Kullanici kategoriler sekmesini tiklar")
+    public void kullanici_kategoriler_sekmesini_tiklar() {
+
+    }
+    @Then("Kullanici Oturma Odasi sekmesine tiklar")
+    public void kullanici_oturma_odasi_sekmesine_tiklar() {
+
+    }
+    @Then("Oturma Odasi sekmesinin aktif oldugu dogrulanir")
+    public void oturma_odasi_sekmesinin_aktif_oldugu_dogrulanir() {
+
+    }
+    @Then("Kullanici Yatak Odasi sekmesine tiklar")
+    public void kullanici_yatak_odasi_sekmesine_tiklar() {
+
+    }
+    @Then("Yatak Odasi sekmesinin aktif oldugu dogrulanir")
+    public void yatak_odasi_sekmesinin_aktif_oldugu_dogrulanir() {
+
+    }
+    @Then("Kullanici Mutfak sekmesine tiklar")
+    public void kullanici_mutfak_sekmesine_tiklar() {
+
+    }
+    @Then("Mutfak sekmesinin aktif oldugu dogrulanir")
+    public void mutfak_sekmesinin_aktif_oldugu_dogrulanir() {
+
+    }
+    @Then("Kullanici Banyo sekmesine tiklar")
+    public void kullanici_banyo_sekmesine_tiklar() {
+
+    }
+    @Then("Banyo sekmesinin aktif oldugu dogrulanir")
+    public void banyo_sekmesinin_aktif_oldugu_dogrulanir() {
+
+    }
+    @Then("Kullanici Acikhava ve Seyahat sekmesine tiklar")
+    public void kullanici_acikhava_ve_seyahat_sekmesine_tiklar() {
+
+    }
+    @Then("Acikhava ve Seyahat sekmesinin aktif oldugu dogrulanir")
+    public void acikhava_ve_seyahat_sekmesinin_aktif_oldugu_dogrulanir() {
+
+    }
+    @Then("Kullanici Isitma Cihazlari sekmesine tiklar")
+    public void kullanici_ısitma_cihazlari_sekmesine_tiklar() {
+
+    }
+    @Then("Isitma Cihazlari sekmesinin aktif oldugu dogrulanir")
+    public void ısitma_cihazlari_sekmesinin_aktif_oldugu_dogrulanir() {
+
+    }
+    @Then("Kullanici Indirimler sekmesine tiklar")
+    public void kullanici_ındirimler_sekmesine_tiklar() {
+
+    }
+    @Then("Indirimler sekmesinin aktif oldugu dogrulanir")
+    public void ındirimler_sekmesinin_aktif_oldugu_dogrulanir() {
+
+    }
 }

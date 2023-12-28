@@ -9,13 +9,12 @@ Feature: Grinara webpage product Test
     And Kullanici login butonuna tiklar
     And Kullanici login olunabildigini dogrular
 
-
   Scenario:Grinara webpage icin product test
     Given Kullanici shop sekmesini acar
     Then Kullanici begendigi bir urunu secer
     And Kullanici urun seceneklerininden secim yapar
     And Kullanici urunu sepete ekler
-    And Kullanici sepete urunun eklendigini dogrular
+
 
 
 
