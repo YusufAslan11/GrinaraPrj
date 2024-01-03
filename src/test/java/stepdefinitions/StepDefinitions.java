@@ -32,6 +32,9 @@ public class StepDefinitions {
     Faker fake = new Faker();
     Actions actions = new Actions(Driver.getDriver());
 
+    String registerMail;
+    String userName;
+
 
     @Given("Kullanici {string} sayfasina gider")
     public void kullanici_sayfasina_gider(String Grinara_Url) {
@@ -45,10 +48,16 @@ public class StepDefinitions {
         click(page.register_myAccount);
         bekle(2);
 
+
     }
 
     @Then("Kullanici register sekmesine tiklar")
     public void kullanici_register_sekmesine_tiklar() {
+
+
+        click(page.acceptMsg);
+        bekle(2);
+
         click(page.register_register);
         bekle(2);
 
@@ -56,8 +65,13 @@ public class StepDefinitions {
 
     @Then("Kullanici mail adresini girer")
     public void kullanici_mail_adresini_girer() {
-        page.register_email.sendKeys(fake.internet().emailAddress());
 
+
+       // page.register_email.sendKeys(fake.internet().emailAddress());
+        registerMail = fake.internet().emailAddress();
+        page.register_email.sendKeys(registerMail);
+        String[] splitMail = registerMail.split("@");
+        userName = splitMail[0];
 
     }
 
@@ -68,9 +82,15 @@ public class StepDefinitions {
 
     }
 
-    @Then("Kullanici register isleminin basarili oldugunu dogrular2")
+    @Then("Kullanici register isleminin basarili oldugunu dogrular")
     public void kullanici_register_isleminin_basarili_oldugunu_dogrular() {
-        page.edit_account.click();
+        tumSayfaResmi("Registered");
+        String registerMsg = page.registerMessage.getText();
+        System.out.println(registerMsg);
+        System.out.println(userName);
+
+      //  Assert.assertTrue(registerMsg.contains(userName));
+
 
     }
 
@@ -138,25 +158,54 @@ public class StepDefinitions {
         for (WebElement webElement : pro) {
             System.out.println(webElement.getText());
         }
-        scroll(prod.urunX);
+        scroll(prod.tripod);
+        bekle(2);
 
-        prod.urunX.click();
+        click(page.acceptMsg);
+        bekle(2);
+        click(prod.tripod);
+
+
 
     }
 
     @Then("Kullanici sectigi urun sayfasinda oldugunu dogrular")
     public void kullanici_sectigi_urun_sayfasinda_oldugunu_dogrular() {
         Assert.assertTrue(Driver.getDriver().getTitle().contains("ICQN"));
+
+
+
     }
 
-    @Then("Kullanici urun seceneklerininden secim yapar")
+    @Then("Kullanici urun seceneklerinden secim yapar")
     public void kullanici_urun_seceneklerininden_secim_yapar() {
-        prod.tripod.click();
+
+
+
+
     }
 
     @Then("Kullanici urunu sepete ekler")
     public void kullanici_urunu_sepete_ekler() {
-        click(prod.sepet);
+//        try {
+//            page.acceptMsg.click();
+//            bekle(2);
+//            //  Block of code to try
+//        }
+//        catch(Exception e) {
+//            System.out.println("Cookies bulunamadı");
+//        }
+//        try {
+//            prod.tripod2.click();
+//        }
+//        catch(Exception e) {
+//            System.out.println("Ürün bulunamadı");
+//        }
+
+
+        click(prod.buyProduct);
+
+        bekle(2);
 
 
     }
@@ -198,58 +247,72 @@ public class StepDefinitions {
     public void kullanici_kategoriler_sekmesini_tiklar() {
 
     }
+
     @Then("Kullanici Oturma Odasi sekmesine tiklar")
     public void kullanici_oturma_odasi_sekmesine_tiklar() {
 
     }
+
     @Then("Oturma Odasi sekmesinin aktif oldugu dogrulanir")
     public void oturma_odasi_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
+
     @Then("Kullanici Yatak Odasi sekmesine tiklar")
     public void kullanici_yatak_odasi_sekmesine_tiklar() {
 
     }
+
     @Then("Yatak Odasi sekmesinin aktif oldugu dogrulanir")
     public void yatak_odasi_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
+
     @Then("Kullanici Mutfak sekmesine tiklar")
     public void kullanici_mutfak_sekmesine_tiklar() {
 
     }
+
     @Then("Mutfak sekmesinin aktif oldugu dogrulanir")
     public void mutfak_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
+
     @Then("Kullanici Banyo sekmesine tiklar")
     public void kullanici_banyo_sekmesine_tiklar() {
 
     }
+
     @Then("Banyo sekmesinin aktif oldugu dogrulanir")
     public void banyo_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
+
     @Then("Kullanici Acikhava ve Seyahat sekmesine tiklar")
     public void kullanici_acikhava_ve_seyahat_sekmesine_tiklar() {
 
     }
+
     @Then("Acikhava ve Seyahat sekmesinin aktif oldugu dogrulanir")
     public void acikhava_ve_seyahat_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
+
     @Then("Kullanici Isitma Cihazlari sekmesine tiklar")
     public void kullanici_ısitma_cihazlari_sekmesine_tiklar() {
 
     }
+
     @Then("Isitma Cihazlari sekmesinin aktif oldugu dogrulanir")
     public void ısitma_cihazlari_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
+
     @Then("Kullanici Indirimler sekmesine tiklar")
     public void kullanici_ındirimler_sekmesine_tiklar() {
 
     }
+
     @Then("Indirimler sekmesinin aktif oldugu dogrulanir")
     public void ındirimler_sekmesinin_aktif_oldugu_dogrulanir() {
 

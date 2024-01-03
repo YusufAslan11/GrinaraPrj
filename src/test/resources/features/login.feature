@@ -22,7 +22,7 @@ Feature: Grinara webPage login testi
 
     Examples:
       | Email                       | password |
-      | aaa@gmail.com               | 12345678 |
+      | aaa@gmail.com               | 265874   |
       | abc@bbb                     | 12345678 |
       | abcgmail.com                | 12345678 |
       | prish.kaelen@free2ducks.com | jxuhy2C& |

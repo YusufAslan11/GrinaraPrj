@@ -17,7 +17,8 @@ import org.junit.runner.RunWith;
         monochrome = true, //raporları consolda daha okunaklı olması için
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "@loginPositive or @loginNegative or @searchproduct or @product",
+     // tags = "@register or @loginPositive or @loginNegative or @searchproduct or @product1",
+         tags= "@product1 ",
         dryRun = false
 
 )

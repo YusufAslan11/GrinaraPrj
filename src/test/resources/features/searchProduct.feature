@@ -19,5 +19,6 @@ Feature: Grinara webPage product search section
       | Pro       |
       | Biofactur |
       | Komfortec |
+      | ICQN      |
 
 
