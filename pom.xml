@@ -118,57 +118,52 @@
     </dependencies>
 
     <build>
-        <plugins>
-            <!-- cucumber report icin  -->
-            <plugin>
-                <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>5.7.5</version>
-                <executions>
-                    <execution>
-                        <id>execution</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <projectName>cucumber-jvm-example</projectName>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <inputDirectory>${project.build.directory}</inputDirectory>
-                            <jsonFiles>
-                                <param>**/json-reports/*.json</param><!-- rapor formati json olacak  -->
-                            </jsonFiles>
-                            <classificationFiles>->
-                                <param>sample.properties</param>
-                                <param>other.properties</param>
-                            </classificationFiles>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+        <pluginManagement>
+            <plugins>
+                <!-- cucumber report icin  -->
+                <plugin>
+                    <groupId>net.masterthought</groupId>
+                    <artifactId>maven-cucumber-reporting</artifactId>
+                    <version>5.7.5</version>
+                    <executions>
+                        <execution>
+                            <id>execution</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                            <configuration>
+                                <projectName>cucumber-jvm-example</projectName>
+                                <outputDirectory>${project.build.directory}</outputDirectory>
+                                <inputDirectory>${project.build.directory}</inputDirectory>
+                                <jsonFiles>
+                                    <param>**/json-reports/*.json</param><!-- rapor formati json olacak  -->
+                                </jsonFiles>
+                                <classificationFiles>->
+                                    <param>sample.properties</param>
+                                    <param>other.properties</param>
+                                </classificationFiles>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
 
-            <!--// Jenkins için kullandık -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <parallel>classes</parallel>
-                    <forkCount>1</forkCount>
-                    <reuseForks>true</reuseForks>
-                    <threadCount>1</threadCount>
-                    <reuseForks>false</reuseForks>
-                    <argLine>-Duser.language=en</argLine>
-                    <argLine>-Dfile.encoding=UTF-8</argLine>
-                    <useFile>false</useFile>
-                    <includes>
-                        <include>**/runners/RunnerUI.java</include>
-                    </includes>
-                    <testFailureIgnore>true</testFailureIgnore>
-                </configuration>
-            </plugin>
+                <!--// Jenkins için kullandık -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.3</version>
+                    <configuration>
 
-        </plugins>
+                        <includes>
+                            <include>**/runners/RunnerUI.java</include>
+                        </includes>
+                        <!-- <testFailureIgnore>true</testFailureIgnore>   Bu yapı testler başarısız olduğunda testin devam etmesini sağlar-->
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
 
     </build>
 
