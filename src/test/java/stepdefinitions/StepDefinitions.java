@@ -9,10 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import pages.Login_Page;
-import pages.Product_Page;
-import pages.Register_Page;
-import pages.SearchProduct_Page;
+import pages.*;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -28,6 +25,8 @@ public class StepDefinitions {
     Login_Page login = new Login_Page();
     Product_Page prod = new Product_Page();
     SearchProduct_Page search = new SearchProduct_Page();
+
+    Categories_Page cat =new Categories_Page();
 
     Faker fake = new Faker();
     Actions actions = new Actions(Driver.getDriver());
@@ -246,75 +245,63 @@ public class StepDefinitions {
     @Then("Kullanici kategoriler sekmesini tiklar")
     public void kullanici_kategoriler_sekmesini_tiklar() {
 
-    }
 
+    }
     @Then("Kullanici Oturma Odasi sekmesine tiklar")
     public void kullanici_oturma_odasi_sekmesine_tiklar() {
 
     }
-
     @Then("Oturma Odasi sekmesinin aktif oldugu dogrulanir")
     public void oturma_odasi_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
-
     @Then("Kullanici Yatak Odasi sekmesine tiklar")
     public void kullanici_yatak_odasi_sekmesine_tiklar() {
 
     }
-
     @Then("Yatak Odasi sekmesinin aktif oldugu dogrulanir")
     public void yatak_odasi_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
-
     @Then("Kullanici Mutfak sekmesine tiklar")
     public void kullanici_mutfak_sekmesine_tiklar() {
 
     }
-
     @Then("Mutfak sekmesinin aktif oldugu dogrulanir")
     public void mutfak_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
-
     @Then("Kullanici Banyo sekmesine tiklar")
     public void kullanici_banyo_sekmesine_tiklar() {
 
     }
-
     @Then("Banyo sekmesinin aktif oldugu dogrulanir")
     public void banyo_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
-
     @Then("Kullanici Acikhava ve Seyahat sekmesine tiklar")
     public void kullanici_acikhava_ve_seyahat_sekmesine_tiklar() {
-
+      ;
     }
-
     @Then("Acikhava ve Seyahat sekmesinin aktif oldugu dogrulanir")
     public void acikhava_ve_seyahat_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
-
     @Then("Kullanici Isitma Cihazlari sekmesine tiklar")
     public void kullanici_ısitma_cihazlari_sekmesine_tiklar() {
 
     }
-
     @Then("Isitma Cihazlari sekmesinin aktif oldugu dogrulanir")
     public void ısitma_cihazlari_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
-
     @Then("Kullanici Indirimler sekmesine tiklar")
     public void kullanici_ındirimler_sekmesine_tiklar() {
 
     }
-
     @Then("Indirimler sekmesinin aktif oldugu dogrulanir")
     public void ındirimler_sekmesinin_aktif_oldugu_dogrulanir() {
 
     }
+
 }
